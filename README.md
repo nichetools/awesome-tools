@@ -1,4 +1,4 @@
-# FreeStuff.dev Clone
+# Awesome.Tools
 
 A directory of free resources for developers, inspired by freestuff.dev.
 
