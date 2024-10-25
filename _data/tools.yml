@@ -1,0 +1,6 @@
+- title: "Example Tool"
+  link: "https://example.com"
+  description: "An example tool for developers"
+  tags: 
+    - Database
+    - Hosting

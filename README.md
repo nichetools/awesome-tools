@@ -1,28 +1,19 @@
-# Awesome.Tools
+# Awesome Tools Directory
 
-A directory of free resources for developers, inspired by freestuff.dev.
+A curated list of free tools and resources for developers. Perfect for prototyping or building MVPs.
 
-## How to Add a Resource
+## GitHub Repository
 
-You can add a new resource in two ways:
+This project is open source. You can find the code on GitHub:
 
-1. **GitHub Pull Request**: For those familiar with GitHub, you can submit a pull request with your addition. See our [Contributing Guide](CONTRIBUTING.md) for more details.
+[https://github.com/nichetools/awesome-tools](https://github.com/nichetools/awesome-tools)
 
-2. **Web Form**: For a simpler method, use our [web form](https://yourdomain.com/submit) to submit a new resource.
-
-## Resource Format
-
-When adding a new resource, please provide the following information:
-
-- **Name**: The name of the product or service
-- **Description**: A short description (1-2 sentences)
-- **Tags**: Keywords that describe the type of tool (e.g., "hosting", "design", "database")
-- **URL**: The website link to the resource
+Feel free to star the repository if you find it useful!
 
 ## Contributing
 
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for more details on how to get started.
+We welcome contributions! To add a new tool, please read our [Contributing Guidelines](CONTRIBUTING.md).
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
