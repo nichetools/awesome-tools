@@ -94,7 +94,10 @@ ${yamlContent}
 \`\`\`
 `);
 
-    const prUrl = `https://github.com/nichetools/awesome-tools/edit/main/_data/tools.yml?value=${encodeURIComponent(yamlContent)}&message=${encodeURIComponent(`Add new tool: ${toolName}`)}&description=${prBody}`;
+    const newBranch = `add-tool-${toolName.toLowerCase().replace(/\s+/g, '-')}`;
+    const encodedContent = btoa(yamlContent); // Base64 encode the content
+
+    const prUrl = `https://github.com/nichetools/awesome-tools/new/main?filename=_data/tools.yml&value=${encodedContent}&message=${encodeURIComponent(`Add new tool: ${toolName}`)}&description=${prBody}&target_branch=${newBranch}`;
 
     window.open(prUrl, '_blank');
 }

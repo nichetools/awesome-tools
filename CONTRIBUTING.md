@@ -1,15 +1,19 @@
 # Contributing to Awesome Tools Directory
 
-We welcome contributions! There are two ways to add a new tool:
+We welcome contributions! Here's how you can add a new tool:
 
-## 1. Using the Submit Form
+## Using the Submit Form (Recommended)
 
 1. Visit our [Awesome Tools Directory](https://awesome.tools).
 2. Fill out the "Submit a New Tool" form in the header with the tool's details.
-3. Click "Submit Pull Request" to open a pre-filled pull request on GitHub.
-4. Review your changes and submit the pull request.
+3. Click "Submit Pull Request" to open a new tab with a pre-filled pull request on GitHub.
+4. On the GitHub page:
+   - Review the changes in the `_data/tools.yml` file.
+   - If everything looks correct, click "Propose changes".
+   - On the next page, click "Create pull request".
+5. Your pull request will now be reviewed by the maintainers.
 
-## 2. Manual Contribution
+## Manual Contribution
 
 If you prefer to contribute manually:
 
@@ -35,3 +39,5 @@ Please ensure your tool meets these criteria:
 - It should be a general development tool, not specific to a single language or framework.
 
 By contributing, you agree that your contributions will be licensed under the MIT License.
+
+Thank you for helping to improve the Awesome Tools Directory!
