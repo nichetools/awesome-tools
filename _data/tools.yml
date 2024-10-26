@@ -1,13 +1,13 @@
 - title: "Netlify"
   link: "https://www.netlify.com/"
-  description: "All-in-one platform for automating modern web projects. Offers hosting and serverless backend services for static websites."
+  description: "All-in-one platform for automating modern web projects."
   tags: 
     - Hosting
     - Serverless
 
 - title: "MongoDB Atlas"
   link: "https://www.mongodb.com/cloud/atlas"
-  description: "Fully-managed cloud database service for modern applications. Offers a free tier with 512MB storage."
+  description: "Fully-managed cloud database service for modern applications."
   tags:
     - Database
     - Cloud

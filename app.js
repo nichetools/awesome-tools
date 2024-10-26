@@ -22,7 +22,8 @@ async function fetchTools() {
         return await response.json();
     } catch (error) {
         console.error("Could not fetch tools:", error);
-        return []; // Return an empty array if fetch fails
+        console.log("Using fallback data");
+        return fallbackTools; // Use the fallback data defined in index.html
     }
 }
 
