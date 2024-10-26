@@ -1,15 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
     fetchTools().then(tools => {
-        const tags = [...new Set(tools.flatMap(tool => tool.tags))];
-        generateFilters(tags);
+        const categories = [...new Set(tools.flatMap(tool => tool.tags))];
+        generateCategoryDropdown(categories);
         displayTools(tools);
-    });
 
-    document.getElementById('filters').addEventListener('change', (e) => {
-        if (e.target.type === 'checkbox') {
-            const selectedTags = [...document.querySelectorAll('#filters input:checked')].map(input => input.value);
-            filterTools(selectedTags);
-        }
+        document.getElementById('category-filter').addEventListener('change', (e) => {
+            const selectedCategory = e.target.value;
+            filterTools(tools, selectedCategory);
+        });
     });
 });
 
@@ -23,19 +21,17 @@ async function fetchTools() {
     } catch (error) {
         console.error("Could not fetch tools:", error);
         console.log("Using fallback data");
-        return fallbackTools; // Use the fallback data defined in index.html
+        return fallbackTools;
     }
 }
 
-function generateFilters(tags) {
-    const filtersSection = document.getElementById('filters');
-    tags.forEach(tag => {
-        const label = document.createElement('label');
-        label.innerHTML = `
-            <input type="checkbox" value="${tag}">
-            ${tag}
-        `;
-        filtersSection.appendChild(label);
+function generateCategoryDropdown(categories) {
+    const dropdown = document.getElementById('category-filter');
+    categories.forEach(category => {
+        const option = document.createElement('option');
+        option.value = category;
+        option.textContent = category;
+        dropdown.appendChild(option);
     });
 }
 
@@ -50,21 +46,21 @@ function displayTools(tools) {
 
 function createToolElement(tool) {
     const toolCard = document.createElement('div');
-    toolCard.className = 'tool-card';
+    toolCard.className = 'bg-white rounded-lg shadow-md p-6';
     toolCard.innerHTML = `
-        <h3>${tool.title}</h3>
-        <p>${tool.description}</p>
-        <div class="tags">${tool.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}</div>
-        <a href="${tool.link}" target="_blank" class="visit-btn">Visit Tool</a>
+        <h3 class="text-xl font-semibold mb-2">${tool.title}</h3>
+        <p class="text-gray-600 mb-4">${tool.description}</p>
+        <div class="mb-4">
+            ${tool.tags.map(tag => `<span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full mr-2 mb-2">${tag}</span>`).join('')}
+        </div>
+        <a href="${tool.link}" target="_blank" class="inline-block bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300">Visit Tool</a>
     `;
     return toolCard;
 }
 
-function filterTools(selectedTags) {
-    const tools = [...document.querySelectorAll('.tool-card')];
-    tools.forEach(tool => {
-        const toolTags = [...tool.querySelectorAll('.tag')].map(tag => tag.textContent);
-        const shouldShow = selectedTags.length === 0 || selectedTags.some(tag => toolTags.includes(tag));
-        tool.style.display = shouldShow ? 'block' : 'none';
-    });
+function filterTools(tools, category) {
+    const filteredTools = category
+        ? tools.filter(tool => tool.tags.includes(category))
+        : tools;
+    displayTools(filteredTools);
 }
