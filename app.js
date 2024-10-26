@@ -14,8 +14,16 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 async function fetchTools() {
-    const response = await fetch('tools.json');
-    return await response.json();
+    try {
+        const response = await fetch('tools.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return await response.json();
+    } catch (error) {
+        console.error("Could not fetch tools:", error);
+        return []; // Return an empty array if fetch fails
+    }
 }
 
 function generateFilters(tags) {
@@ -55,7 +63,7 @@ function filterTools(selectedTags) {
     const tools = [...document.querySelectorAll('.tool-card')];
     tools.forEach(tool => {
         const toolTags = [...tool.querySelectorAll('.tag')].map(tag => tag.textContent);
-        const shouldShow = selectedTags.length === 0 || selectedTags.every(tag => toolTags.includes(tag));
+        const shouldShow = selectedTags.length === 0 || selectedTags.some(tag => toolTags.includes(tag));
         tool.style.display = shouldShow ? 'block' : 'none';
     });
 }
