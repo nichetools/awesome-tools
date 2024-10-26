@@ -1,44 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const toolsSection = document.getElementById('tools');
-    const filtersSection = document.getElementById('filters');
-
-    // Fetch tools data
     fetchTools().then(tools => {
-        // Generate filters
         const tags = [...new Set(tools.flatMap(tool => tool.tags))];
         generateFilters(tags);
-
-        // Display tools
         displayTools(tools);
     });
 
-    // Event listener for filters
-    filtersSection.addEventListener('change', (e) => {
+    document.getElementById('filters').addEventListener('change', (e) => {
         if (e.target.type === 'checkbox') {
-            const selectedTags = [...filtersSection.querySelectorAll('input:checked')].map(input => input.value);
+            const selectedTags = [...document.querySelectorAll('#filters input:checked')].map(input => input.value);
             filterTools(selectedTags);
         }
     });
 });
 
-function fetchTools() {
-    // In a real application, this would fetch from an API or load from a JSON file
-    // For now, we'll return a mock array of tools
-    return Promise.resolve([
-        {
-            title: "Example Tool",
-            link: "https://example.com",
-            thumbnail: "https://example.com/logo.png",
-            snippet: "An example tool for developers",
-            tags: ["Database", "Hosting"],
-            features: [
-                "Free feature 1",
-                "Free feature 2",
-                "Free feature 3"
-            ]
-        },
-        // Add more tools here...
-    ]);
+async function fetchTools() {
+    const response = await fetch('tools.json');
+    return await response.json();
 }
 
 function generateFilters(tags) {
@@ -55,7 +32,7 @@ function generateFilters(tags) {
 
 function displayTools(tools) {
     const toolsSection = document.getElementById('tools');
-    toolsSection.innerHTML = ''; // Clear existing tools
+    toolsSection.innerHTML = '';
     tools.forEach(tool => {
         const toolElement = createToolElement(tool);
         toolsSection.appendChild(toolElement);
@@ -66,13 +43,9 @@ function createToolElement(tool) {
     const toolCard = document.createElement('div');
     toolCard.className = 'tool-card';
     toolCard.innerHTML = `
-        <img src="${tool.thumbnail}" alt="${tool.title}" class="tool-logo">
         <h3>${tool.title}</h3>
-        <p>${tool.snippet}</p>
+        <p>${tool.description}</p>
         <div class="tags">${tool.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}</div>
-        <ul class="features">
-            ${tool.features.map(feature => `<li>${feature}</li>`).join('')}
-        </ul>
         <a href="${tool.link}" target="_blank" class="visit-btn">Visit Tool</a>
     `;
     return toolCard;

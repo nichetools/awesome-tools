@@ -7,35 +7,48 @@
     <meta name="description" content="Discover a curated collection of free tools and resources for developers. Find the best free services for your projects.">
     <link rel="stylesheet" href="styles.css">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <!-- SEO tags from previous version... -->
 </head>
 <body>
     <header>
-        <div class="header-content">
+        <div class="container">
             <h1>Awesome Tools Directory</h1>
-            <a class="github-button" href="https://github.com/nichetools/awesome-tools" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star nichetools/awesome-tools on GitHub">Star</a>
+            <nav>
+                <a href="#tools">Tools</a>
+                <a href="#contribute">Contribute</a>
+                <a class="github-button" href="https://github.com/nichetools/awesome-tools" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star nichetools/awesome-tools on GitHub">Star</a>
+            </nav>
         </div>
     </header>
-    <main>
-        <section id="intro">
-            <p>List of free services for developers including databases, hosting, authentication, and more. Perfect for prototyping or building MVPs.</p>
-        </section>
-        <section id="filters">
-            <!-- Filter options will be dynamically added here -->
-        </section>
-        <section id="tools" class="tools-grid">
-            <!-- Tools will be dynamically added here -->
-        </section>
-        <button id="submitBtn" class="cta-button">Submit New Tool</button>
+    
+
+    <main class="container">
         <section id="contribute">
             <h2>Contribute to Awesome Tools</h2>
             <p>Want to add a tool that's not listed? Submit a pull request on GitHub!</p>
             <a href="https://github.com/nichetools/awesome-tools/pulls" class="github-link" target="_blank">Create a Pull Request</a>
         </section>
+        <section id="intro">
+            <p>Discover free services for developers including databases, hosting, authentication, and more. Perfect for prototyping or building MVPs.</p>
+        </section>
+
+        <section id="filters">
+            <h2>Filter Tools</h2>
+            <!-- Filter options will be dynamically added here -->
+        </section>
+
+        <section id="tools" class="tools-grid">
+            <!-- Tools will be dynamically added here -->
+        </section>
+
+       
     </main>
-    <div id="submitModal" class="modal">
-        <!-- Modal content... -->
-    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Awesome Tools Directory. All rights reserved.</p>
+        </div>
+    </footer>
+
     <script src="app.js"></script>
 </body>
 </html>

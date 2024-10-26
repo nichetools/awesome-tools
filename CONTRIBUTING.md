@@ -3,7 +3,7 @@
 We welcome contributions! To add a new tool:
 
 1. Fork the repository: [https://github.com/nichetools/awesome-tools](https://github.com/nichetools/awesome-tools)
-2. Create a new branch: `git checkout -b add-new-tool`
+2. Create a new branch: `git checkout -b  `
 3. Add your tool to the `_data/tools.yml` file following this format:
 
    ```yaml

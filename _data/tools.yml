@@ -1,6 +1,42 @@
-- title: "Example Tool"
-  link: "https://example.com"
-  description: "An example tool for developers"
+- title: "Netlify"
+  link: "https://www.netlify.com/"
+  description: "All-in-one platform for automating modern web projects. Offers hosting and serverless backend services for static websites."
   tags: 
-    - Database
     - Hosting
+    - Serverless
+
+- title: "MongoDB Atlas"
+  link: "https://www.mongodb.com/cloud/atlas"
+  description: "Fully-managed cloud database service for modern applications. Offers a free tier with 512MB storage."
+  tags:
+    - Database
+    - Cloud
+
+- title: "Heroku"
+  link: "https://www.heroku.com/"
+  description: "Cloud platform that lets companies build, deliver, monitor and scale apps. Offers a free tier for small projects."
+  tags:
+    - Hosting
+    - PaaS
+
+- title: "GitHub"
+  link: "https://github.com/"
+  description: "Web-based hosting service for version control using Git. Offers unlimited public repositories for free."
+  tags:
+    - Version Control
+    - Collaboration
+
+- title: "Vercel"
+  link: "https://vercel.com/"
+  description: "Cloud platform for static and serverless deployment. Optimized for frontend frameworks and static sites."
+  tags:
+    - Hosting
+    - Serverless
+
+- title: "Firebase"
+  link: "https://firebase.google.com/"
+  description: "Google's mobile platform that helps you quickly develop high-quality apps. Offers a generous free tier."
+  tags:
+    - Backend
+    - Database
+    - Authentication
