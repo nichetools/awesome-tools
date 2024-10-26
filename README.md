@@ -1,6 +1,6 @@
 # Awesome Tools Directory
 
-A curated list of awesome tools for builders. 
+A curated list of awesome tools for builders. Need help finding what to make? [Niche Tools](https://nichetools.net) has a collection of 10,000 keywords that will help you start building a tool today. 
 
 ## GitHub Repository
 
