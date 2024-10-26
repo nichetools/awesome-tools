@@ -1,14 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     fetchTools().then(tools => {
         const categories = [...new Set(tools.flatMap(tool => tool.tags))];
-        generateCategoryDropdown(categories);
+        generateCategoryButtons(categories);
         displayTools(tools);
-
-        document.getElementById('category-filter').addEventListener('change', (e) => {
-            const selectedCategory = e.target.value;
-            filterTools(tools, selectedCategory);
-        });
     });
+
+    document.getElementById('pr-form').addEventListener('submit', submitPullRequest);
 });
 
 async function fetchTools() {
@@ -25,14 +22,21 @@ async function fetchTools() {
     }
 }
 
-function generateCategoryDropdown(categories) {
-    const dropdown = document.getElementById('category-filter');
+function generateCategoryButtons(categories) {
+    const categoriesSection = document.getElementById('categories');
     categories.forEach(category => {
-        const option = document.createElement('option');
-        option.value = category;
-        option.textContent = category;
-        dropdown.appendChild(option);
+        const button = document.createElement('button');
+        button.textContent = category;
+        button.className = 'px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-300';
+        button.addEventListener('click', () => filterTools(category));
+        categoriesSection.appendChild(button);
     });
+
+    const allButton = document.createElement('button');
+    allButton.textContent = 'All';
+    allButton.className = 'px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition duration-300';
+    allButton.addEventListener('click', () => filterTools(null));
+    categoriesSection.prepend(allButton);
 }
 
 function displayTools(tools) {
@@ -46,7 +50,7 @@ function displayTools(tools) {
 
 function createToolElement(tool) {
     const toolCard = document.createElement('div');
-    toolCard.className = 'bg-white rounded-lg shadow-md p-6';
+    toolCard.className = 'bg-white rounded-lg shadow-md p-6 border-2 border-gray-200 hover:border-blue-500 transition duration-300';
     toolCard.innerHTML = `
         <h3 class="text-xl font-semibold mb-2">${tool.title}</h3>
         <p class="text-gray-600 mb-4">${tool.description}</p>
@@ -58,9 +62,39 @@ function createToolElement(tool) {
     return toolCard;
 }
 
-function filterTools(tools, category) {
-    const filteredTools = category
-        ? tools.filter(tool => tool.tags.includes(category))
-        : tools;
-    displayTools(filteredTools);
+function filterTools(category) {
+    fetchTools().then(tools => {
+        const filteredTools = category
+            ? tools.filter(tool => tool.tags.includes(category))
+            : tools;
+        displayTools(filteredTools);
+    });
+}
+
+function submitPullRequest(event) {
+    event.preventDefault();
+    const toolName = document.getElementById('tool-name').value;
+    const toolLink = document.getElementById('tool-link').value;
+    const toolTags = document.getElementById('tool-tags').value.split(',').map(tag => tag.trim());
+    const toolDescription = document.getElementById('tool-description').value;
+
+    const yamlContent = `
+- title: "${toolName}"
+  link: "${toolLink}"
+  description: "${toolDescription}"
+  tags: 
+${toolTags.map(tag => `    - ${tag}`).join('\n')}
+`;
+
+    const prBody = encodeURIComponent(`
+Add new tool: ${toolName}
+
+\`\`\`yaml
+${yamlContent}
+\`\`\`
+`);
+
+    const prUrl = `https://github.com/nichetools/awesome-tools/edit/main/_data/tools.yml?value=${encodeURIComponent(yamlContent)}&message=${encodeURIComponent(`Add new tool: ${toolName}`)}&description=${prBody}`;
+
+    window.open(prUrl, '_blank');
 }

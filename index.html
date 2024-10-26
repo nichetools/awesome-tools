@@ -9,27 +9,28 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
 <body class="flex flex-col min-h-screen bg-gray-100">
-    <header class="bg-white shadow-sm">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold text-gray-800">Awesome Tools Directory</h1>
-            <a class="github-button" href="https://github.com/nichetools/awesome-tools" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star nichetools/awesome-tools on GitHub">Star</a>
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center mb-4">
+                <h1 class="text-2xl font-bold text-gray-800">Awesome Tools Directory</h1>
+                <a class="github-button" href="https://github.com/nichetools/awesome-tools" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star nichetools/awesome-tools on GitHub">Star</a>
+            </div>
+            <form id="pr-form" class="bg-blue-50 p-4 rounded-lg">
+                <h2 class="text-lg font-semibold mb-2">Submit a New Tool</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input type="text" id="tool-name" placeholder="Tool Name" class="w-full p-2 border rounded" required>
+                    <input type="url" id="tool-link" placeholder="Tool URL" class="w-full p-2 border rounded" required>
+                    <input type="text" id="tool-tags" placeholder="Tags (comma-separated)" class="w-full p-2 border rounded" required>
+                    <textarea id="tool-description" placeholder="Short description" class="w-full p-2 border rounded" required></textarea>
+                </div>
+                <button type="submit" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300">Submit Pull Request</button>
+            </form>
         </div>
     </header>
 
-    <section class="bg-blue-600 text-white py-16">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl font-bold mb-4">Awesome Tools for Developers</h2>
-            <p class="text-xl mb-8">A curated collection of free tools for developers. Ideal for prototyping and building MVPs.</p>
-            <a href="#tools" class="bg-white text-blue-600 px-6 py-2 rounded-full font-semibold hover:bg-blue-100 transition duration-300">Explore Tools</a>
-        </div>
-    </section>
-
     <main class="flex-grow container mx-auto px-4 py-8">
-        <section id="filters" class="mb-8">
-            <select id="category-filter" class="w-full md:w-64 p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                <option value="">All Categories</option>
-                <!-- Categories will be dynamically added here -->
-            </select>
+        <section id="categories" class="mb-8 flex flex-wrap gap-2">
+            <!-- Category buttons will be dynamically added here -->
         </section>
 
         <section id="tools" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -50,7 +51,6 @@
     </footer>
 
     <script>
-    // Fallback data in case tools.json fails to load
     const fallbackTools = [
         {
             title: "Example Tool",

@@ -23,11 +23,32 @@ jobs:
       - name: Build JSON
         run: |
           python -c "import yaml, json; yaml_file = open('_data/tools.yml', 'r'); json_file = open('tools.json', 'w'); json.dump(yaml.safe_load(yaml_file), json_file, indent=2)"
-          
+
+      - name: Create sitemap
+        run: |
+          echo '<?xml version="1.0" encoding="UTF-8"?>
+          <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+            <url>
+              <loc>https://awesome.tools/</loc>
+              <lastmod>2023-11-15</lastmod>
+              <changefreq>weekly</changefreq>
+              <priority>1.0</priority>
+            </url>
+          </urlset>' > sitemap.xml
+
+      - name: Create robots.txt
+        run: |
+          echo 'User-agent: *
+          Allow: /
+
+          Sitemap: https://awesome.tools/sitemap.xml' > robots.txt
+
       - name: Debug
         run: |
           ls -la
           cat tools.json
+          cat sitemap.xml
+          cat robots.txt
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
