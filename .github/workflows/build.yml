@@ -23,6 +23,11 @@ jobs:
       - name: Build JSON
         run: |
           python .github/scripts/build_json.py
+          
+      - name: Debug
+        run: |
+          ls -la
+          cat tools.json
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
