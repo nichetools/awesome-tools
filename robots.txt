@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://awesome.tools/sitemap.xml
+

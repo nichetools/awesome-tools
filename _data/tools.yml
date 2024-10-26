@@ -12,4 +12,20 @@
     - Database
     - Cloud
 
+- title: "MicroSaaS Ideas"
+  link: "https://microsaasideas.net"
+  description: "A curated list of MicroSaaS ideas for developers and entrepreneurs."
+  tags:
+    - Ideas
+    - MicroSaaS
+    - Entrepreneurship
+
+- title: "PFP Resizer"
+  link: "https://pfpresizer.com"
+  description: "A tool to resize and optimize profile pictures for various social media platforms."
+  tags:
+    - Image Processing
+    - Social Media
+    - Utility
+
 # Add more tools as needed
