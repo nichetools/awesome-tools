@@ -22,7 +22,7 @@ jobs:
 
       - name: Build JSON
         run: |
-          python .github/scripts/build_json.py
+          python -c "import yaml, json; yaml_file = open('_data/tools.yml', 'r'); json_file = open('tools.json', 'w'); json.dump(yaml.safe_load(yaml_file), json_file, indent=2)"
           
       - name: Debug
         run: |

@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function fetchTools() {
     try {
-        const response = await fetch('tools.json');
+        const response = await fetch('./tools.json');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
