@@ -1,0 +1,60 @@
+[
+  {
+    "title": "Niche Tools",
+    "link": "https://nichetools.net",
+    "description": "A databsse of ideas for developers and entrepreneurs.",
+    "tags": [
+      "Ideas",
+      "MicroSaaS",
+      "Entrepreneurship"
+    ]
+  },
+  {
+    "title": "MicroSaaS Ideas",
+    "link": "https://microsaasideas.net",
+    "description": "A curated list of MicroSaaS ideas for developers and entrepreneurs.",
+    "tags": [
+      "Ideas",
+      "MicroSaaS",
+      "Entrepreneurship"
+    ]
+  },
+  {
+    "title": "PFP Resizer",
+    "link": "https://pfpresizer.com",
+    "description": "A tool to resize and optimize profile pictures for various social media platforms.",
+    "tags": [
+      "Image Processing",
+      "Social Media",
+      "Utility"
+    ]
+  },
+  {
+    "title": "Lorem Faces",
+    "link": "https://Loremfaces.net",
+    "description": "A profile Picture Mockup API",
+    "tags": [
+      "Image Processing",
+      "Social Media",
+      "Utility"
+    ]
+  },
+  {
+    "title": "Netlify",
+    "link": "https://www.netlify.com/",
+    "description": "All-in-one platform for automating modern web projects.",
+    "tags": [
+      "Hosting",
+      "Serverless"
+    ]
+  },
+  {
+    "title": "MongoDB Atlas",
+    "link": "https://www.mongodb.com/cloud/atlas",
+    "description": "Fully-managed cloud database service for modern applications.",
+    "tags": [
+      "Database",
+      "Cloud"
+    ]
+  }
+]

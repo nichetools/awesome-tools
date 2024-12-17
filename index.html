@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awesome Tools Directory</title>
+    <meta name="description" content="A curated list of free developer tools and resources.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+</head>
+<body class="flex flex-col min-h-screen bg-gray-100">
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center mb-4">
+                <h1 class="text-2xl font-bold text-gray-800">Awesome Tools Directory</h1>
+                <a class="github-button" href="https://github.com/nichetools/awesome-tools" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star nichetools/awesome-tools on GitHub">Star</a>
+            </div>
+            <form id="pr-form" class="bg-blue-50 p-4 rounded-lg">
+                <h2 class="text-lg font-semibold mb-2">Submit a New Tool</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input type="text" id="tool-name" placeholder="Tool Name" class="w-full p-2 border rounded" required>
+                    <input type="url" id="tool-link" placeholder="Tool URL" class="w-full p-2 border rounded" required>
+                    <input type="text" id="tool-tags" placeholder="Tags (comma-separated)" class="w-full p-2 border rounded" required>
+                    <textarea id="tool-description" placeholder="Short description" class="w-full p-2 border rounded" required></textarea>
+                </div>
+                <button type="submit" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300">Submit Pull Request</button>
+            </form>
+        </div>
+    </header>
+
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <section id="categories" class="mb-8 flex flex-wrap gap-2">
+            <!-- Category buttons will be dynamically added here -->
+        </section>
+
+        <section id="tools" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Tools will be dynamically added here -->
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-4">
+        <div class="container mx-auto px-4 text-center">
+            <p>
+                <a href="https://github.com/nichetools/awesome-tools/blob/main/CONTRIBUTING.md" class="hover:underline">Contribute</a> |
+                <a href="https://github.com/nichetools/awesome-tools" class="hover:underline">GitHub</a>
+            </p>
+            <p class="mt-2">
+                Created by <a href="https://x.com/mattmerrick16" class="text-blue-400 hover:underline">Matt Merrick</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+    const fallbackTools = [
+        {
+            title: "Example Tool",
+            link: "https://example.com",
+            description: "This is a fallback tool in case the JSON fails to load.",
+            tags: ["Example", "Fallback"]
+        }
+    ];
+    </script>
+    <script src="app.js"></script>
+</body>
+</html>
